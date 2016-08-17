@@ -1,20 +1,21 @@
 <?php
+$mes='';
 function getCommonWords($a, $b)
 {
-    if (isset ($_POST['w1'])&&isset($_POST['w2']))
-    {   $mes1=$_POST['w1'];
-        $mes2=$_POST['w2'];
-        $a   = explode(" ", $mes1);
-        $b   = explode(" ", $mes2);
-        $result = array_intersect($a, $b);
+        $arra   = explode(" ", $a);
+        $arrb   = explode(" ", $b);
+        $result = array_intersect($arra, $arrb);
         if (empty($result)) {
             $mes='Совпадений не найдено';
         }
         else {$mes='Одинаковые слова:<br/>'.implode("<br/>", $result);}
         return $mes;
-    }
-
 }
+if (isset ($_POST['w1'])&&isset($_POST['w2']))
+{   $mes1=$_POST['w1'];
+    $mes2=$_POST['w2'];
+   $q=getCommonWords ($mes1,$mes2);
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,6 +33,6 @@ function getCommonWords($a, $b)
     <input type="submit" value="Go">
 </form>
 </div>
-<div><?= getCommonWords($a, $b) ?></div>
+<div><?= $q ?></div>
 </body>
 </html>
