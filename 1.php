@@ -11,7 +11,7 @@ function getCommonWords($a, $b)
         else {$mes='Одинаковые слова:<br/>'.implode("<br/>", $result);}
         return $mes;
 }
-if (isset ($_POST['w1'])&&isset($_POST['w2']))
+if (!empty($_POST['w1'])&&!empty($_POST['w2']))
 {   $mes1=$_POST['w1'];
     $mes2=$_POST['w2'];
    $q=getCommonWords ($mes1,$mes2);
