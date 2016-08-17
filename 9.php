@@ -1,6 +1,4 @@
 <?php
-$str='abcde';
-echo $str.'<br/>';
 function relstr ($a)
 {
     $rez=strrev($a);
@@ -14,5 +12,27 @@ function myrelstr ($a)
     {$rez.=$a[$i];}
     return $rez;
 }
-echo myrelstr ($str).'<br/>';
-echo relstr ($str).'<br/>';
+
+if (!empty($_POST['str']))
+{  $a= myrelstr ($_POST['str']).'<br/>';
+    $b=  relstr ($_POST['str']).'<br/>';
+}
+?>
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <title>Задачи по функциям и формам</title>
+</head>
+<body>
+<div>
+    <form method="post">
+        <label>Удалить слова длиннее</label><br/>
+        <input type="text" name="str" value="<?=$_POST['str']?>"><br/>
+        <input type="submit" value="Go">
+    </form>
+</div>
+<div><?= $a ?></div>
+<div><?= $b ?></div>
+</body>
+</html>

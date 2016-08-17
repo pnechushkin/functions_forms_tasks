@@ -17,7 +17,7 @@ if (!empty($_POST['coun']))
 }
 ?>
 <!DOCTYPE html>
-<html lang="UTF-8"
+<html lang="eng">
 <head>
     <meta charset="UTF-8">
     <title>Задачи по функциям и формам</title>
