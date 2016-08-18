@@ -1,17 +1,18 @@
 <?php
 error_reporting(E_ALL);
-$dir=__DIR__.'/4';
-    function showFile($dir)
+$dir=__DIR__.'/5';
+$namf='txt';
+    function showFile($dir,$namf)
     {
 
         if ($papka = scandir($dir)) {
             echo 'Список папки: '.$dir.'<br/>';
             natcasesort($papka);
             foreach ($papka as $file) {
-                echo $file.'<br/>';
+                if (preg_match("/".$namf."/",$file)) {echo $file.'<br/>';}
             }
             }
 
         }
 
-showFile($dir);
+showFile($dir,$namf);
