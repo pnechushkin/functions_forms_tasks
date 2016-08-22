@@ -26,8 +26,8 @@ if (!empty($_POST['coun']))
 <div>
 <form method="post">
         <label>Удалить слова длиннее</label><br/>
-    <input type="number"><br/>
-        <input type="submit" name="coun" value="Go">
+    <input type="number" name="coun"><br/>
+        <input type="submit" value="Go">
 </form>
 </div>
 <div><?= $q ?></div>

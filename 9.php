@@ -27,7 +27,7 @@ if (!empty($_POST['str']))
 <body>
 <div>
     <form method="post">
-        <label>Удалить слова длиннее</label><br/>
+        <label>Перевернуть слово</label><br/>
         <input type="text" name="str" value="<?=$_POST['str']?>"><br/>
         <input type="submit" value="Go">
     </form>
