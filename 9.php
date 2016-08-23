@@ -30,6 +30,6 @@ if (!empty($_POST['str']))
     </form>
 </div>
 <div><?= $a ?></div>
-<div><?= $b ?></div>
+
 </body>
 </html>
