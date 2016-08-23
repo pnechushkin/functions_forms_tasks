@@ -1,21 +1,18 @@
 <?php
-function relstr ($a)
-{
-    $rez=strrev($a);
-    return $rez;
-}
-
 function myrelstr ($a)
-{$c=strlen ($a);
+{
     $rez=null;
+    $arr= preg_split('//u', $a, null, PREG_SPLIT_NO_EMPTY);
+    $c=count($arr);
+
     for ($i=$c;$i>=0;$i--)
-    {$rez.=$a[$i];}
+    {$rez.=$arr[$i];}
     return $rez;
 }
 
 if (!empty($_POST['str']))
 {  $a= myrelstr ($_POST['str']).'<br/>';
-    $b=  relstr ($_POST['str']).'<br/>';
+
 }
 ?>
 <!DOCTYPE html>
