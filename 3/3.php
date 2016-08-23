@@ -4,12 +4,21 @@ $q=null;
 
     function delWords($a)
     {
-        $file="fileneme.txt";
-       $fo= fopen($file, "r+");
+        $file_name=__DIR__."/fileneme.txt";
 
-        $file = iconv("windows-1251", "utf-8", $file);
-        echo  file_get_contents($file);
-        fclose($fo);
+        $r=fopen($file_name,'r');
+
+        $text=mb_convert_encoding(fread($r,filesize($file_name)),'UTF-8', 'Windows-1251');
+
+        $text=preg_replace('(\$[,]\w*)u','*',$text);
+        echo $text;
+        //$w=fopen($file_name,'w'); // 6
+
+       // fwrite($w,$text);  // 7
+
+       // fclose($w);  // 8
+
+        fclose($r);  // 4
     }
 if (!empty($_POST['coun']))
 {   $mes1=$_POST['coun'];
@@ -30,6 +39,6 @@ if (!empty($_POST['coun']))
         <input type="submit" value="Go">
 </form>
 </div>
-<div><?= $q ?></div>
+<div><?= 'sdnb' ?></div>
 </body>
 </html>
