@@ -1,7 +1,9 @@
 <?php
 function unique_words ($a)
-{$arr = explode(" ", $a);
-    $unique_val = array_unique($arr );
+{$arr = preg_split ('/[\s+\.,?!;:]/' , $a) ;
+    $array_empty = array(null);
+    $result = array_diff($arr, $array_empty);
+    $unique_val = array_unique($result );
 
 return $b='В тексте '.count($unique_val).' уникальных слов';
 }
