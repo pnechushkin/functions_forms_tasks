@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 $q=null;
 
-    function upFil()
+  function upFil()
     {$upDir=__DIR__.'/uploads/';
         $c= count($_FILES['img']['name']);
         for ($i=0; $i<$c; $i++) {
@@ -28,38 +28,41 @@ function showFile()
         $c= count($papka);
         for ($i=2;$i<$c; $i++)
         {
-            $pic[]=$papka[$i];
+            $pic[]='/uploads/'.$papka[$i];
+
         }
 
         $cp=count($pic);
-
         if ($cp>0)
         {
             $n=$cp;
 
-            $q.= '<table width="80%">';
+            $q.= '<table align="center" width="80%">';
             $f=0;
-            while($n <=-4||$n >=0){
+            while($n >=-4){
 
                 $q.= "<tr>";
-             if ($c-2>$f) {$q.= "<td width='20%'><img src=\"".$pic[$f]."\" width=\"200\" height=\"200\" /></td> "; $f++;} else { $q.= "<td width='25'></td>";}
-             if ($c-2>$f) {$q.= "<td width='20%'><img src=\"".$pic[$f]."\" width=\"200\" height=\"200\" /></td> "; $f++;} else { $q.= "<td width='25'></td>";}
-             if ($c-2>$f) {$q.= "<td width='20%'><img src=\"".$pic[$f]."\" width=\"200\" height=\"200\" /></td> "; $f++;} else { $q.= "<td width='25'></td>";}
-             if ($c-2>$f) {$q.= "<td width='20%'><img src=\"".$pic[$f]."\" width=\"200\" height=\"200\" /></td> "; $f++;} else { $q.= "<td width='25'></td>";}
+                if ($c-2>$f) {$q.= "<td width='20%'><img src=\"".$pic[$f]."\" width=\"250\" height=\"200\" /></td> "; $f++;} else { $q.= "<td width='25'></td>";}
+                if ($c-2>$f) {$q.= "<td width='20%'><img src=\"".$pic[$f]."\" width=\"250\" height=\"200\" /></td> "; $f++;} else { $q.= "<td width='25'></td>";}
+                if ($c-2>$f) {$q.= "<td width='20%'><img src=\"".$pic[$f]."\" width=\"250\" height=\"200\" /></td> "; $f++;} else { $q.= "<td width='25'></td>";}
+                if ($c-2>$f) {$q.= "<td width='20%'><img src=\"".$pic[$f]."\" width=\"250\" height=\"200\" /></td> "; $f++;} else { $q.= "<td width='25'></td>";}
                 $q.= "</tr>";
-            $n=$n-4;}
+                $n=$n-4;}
             $q.= "</table>";
 
         }
-        else {return $q;}
+
+
+
     }
 return $q;
+
 }
 
 if (!empty($_FILES))
 {
     upFil ();
-
+  //  showFile();
 }
 //showFile();
 ?>
@@ -77,6 +80,6 @@ if (!empty($_FILES))
         <input type="submit" value="Go">
 </form>
 </div>
-<div><?= $q ?></div>
+<div><?= showFile(); ?></div>
 </body>
 </html>
