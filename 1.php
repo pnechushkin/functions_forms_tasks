@@ -12,7 +12,6 @@ function getCommonWords($a, $b)
     }
     return $mes;
 }
-
 if (!empty($_POST['w1']) && !empty($_POST['w2'])) {
     $mes1 = $_POST['w1'];
     $mes2 = $_POST['w2'];
