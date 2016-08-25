@@ -1,17 +1,18 @@
 <?php
-function myrelstr ($a)
+function myrelstr($a)
 {
-    $rez=null;
-    $arr= preg_split('//u', $a, null, PREG_SPLIT_NO_EMPTY);
-    $c=count($arr);
+    $rez = null;
+    $arr = preg_split('//u', $a, null, PREG_SPLIT_NO_EMPTY);
+    $c = count($arr);
 
-    for ($i=$c;$i>=0;$i--)
-    {$rez.=$arr[$i];}
+    for ($i = $c; $i >= 0; $i--) {
+        $rez .= $arr[$i];
+    }
     return $rez;
 }
 
-if (!empty($_POST['str']))
-{  $a= myrelstr ($_POST['str']).'<br/>';
+if (!empty($_POST['str'])) {
+    $a = myrelstr($_POST['str']) . '<br/>';
 
 }
 ?>
@@ -25,7 +26,7 @@ if (!empty($_POST['str']))
 <div>
     <form method="post">
         <label>Перевернуть слово</label><br/>
-        <input type="text" name="str" value="<?=$_POST['str']?>"><br/>
+        <input type="text" name="str" value="<?= $_POST['str'] ?>"><br/>
         <input type="submit" value="Go">
     </form>
 </div>

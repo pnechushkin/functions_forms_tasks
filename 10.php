@@ -1,15 +1,16 @@
 <?php
-function unique_words ($a)
-{$arr = preg_split ('/[\s+\.,?!;:]/' , $a) ;
+function unique_words($a)
+{
+    $arr = preg_split('/[\s+\.,?!;:]/', $a);
     $array_empty = array(null);
     $result = array_diff($arr, $array_empty);
     $unique_val = array_unique($result);
 
-return $b='В тексте '.count($unique_val).' уникальных слов';
+    return $b = 'В тексте ' . count($unique_val) . ' уникальных слов';
 }
 
-if (!empty($_POST['str']))
-{ $a= unique_words ($_POST['str']).'<br/>';
+if (!empty($_POST['str'])) {
+    $a = unique_words($_POST['str']) . '<br/>';
 
 }
 ?>
@@ -24,7 +25,7 @@ if (!empty($_POST['str']))
     <form method="post">
         <label>Количество уникальных слов в тексте</label><br/>
 
-        <textarea cols="60" rows="5" name="str"><?=$_POST['str']?></textarea><br/>
+        <textarea cols="60" rows="5" name="str"><?= $_POST['str'] ?></textarea><br/>
         <input type="submit" value="Go">
     </form>
 </div>
