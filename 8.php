@@ -1,25 +1,47 @@
 <?php
+
 $post = array();
 if (!empty($_POST['commit']) && !empty($_POST['login'])) {
 	$commit = $_POST['commit'];
 	$login = $_POST['login'];
-	$post = array(
-		'text' => $commit,
-		'login' => $login,
-	);
-	ed_Commit($commit, $login);
+
+	if (bedwords($commit) !== false) {
+		$post = array(
+			'text' => $commit,
+			'login' => $login,
+		);
+		ed_Commit($commit, $login);
+	} else {
+		echo 'В сообщении найдены нецензупные слова<br/><br/>';
+	}
+
 }
 $post = posts();
-if (!empty($post)) {
 
+if (!empty($post)) {
 	foreach ($post as $text) {
 
-		echo 'Пользователь <strong>' . $text['login'] . '</strong> оставил<br/>';
+		echo 'Пользователь <strong>' . $text['login'] . '</strong> оставил комментарий:<br/>';
 		echo 'Комментарий: <br/>' . $text['text'] . '<br/>';
 	}
 }
+function bedwords($post)
+{
+	$flag = true;
+	$bedwords = null;
+	include 'bedwords.php';
+	$text = preg_split('/[0-9\s+\.,?!;:]/', $post);
+	foreach ($text as $word) {
+		if (in_array($word, $bedwords)) {
+			$flag = false;
+			return $flag;
+		}
+	}
+}
+
 function ed_Commit($mes, $user)
-{   $mes=preg_replace("/(\r\n)/", "<br/>", $mes);
+{
+	$mes = preg_replace("/(\r\n)/", "<br/>", $mes);
 	$arr = array(
 		'text' => $mes,
 		'login' => $user,

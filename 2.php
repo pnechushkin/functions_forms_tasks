@@ -1,5 +1,5 @@
 <?php
-$mes = '';
+$mes = null;
 function getLongWords($a)
 {
     $arra = explode(" ", $a);
