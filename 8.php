@@ -1,10 +1,9 @@
 <?php
-
 $post = array();
 if (!empty($_POST['commit']) && !empty($_POST['login'])) {
 	$commit = $_POST['commit'];
 	$login = $_POST['login'];
-	$commit=strip_tags($commit, '<b></b>');
+	$commit = strip_tags($commit, '<b></b>');
 	if (bedwords($commit) !== false) {
 		$post = array(
 			'text' => $commit,
@@ -73,7 +72,6 @@ function posts()
 			$rez[] = unserialize($row);
 		}
 		fclose($fo);
-print_r($rez);
 		return $rez;
 
 	}
