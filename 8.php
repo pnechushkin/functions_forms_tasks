@@ -73,7 +73,7 @@ function posts()
 			$rez[] = unserialize($row);
 		}
 		fclose($fo);
-
+print_r($rez);
 		return $rez;
 
 	}
@@ -89,7 +89,6 @@ function posts()
 	<title>Задачи по функциям и формам</title>
 </head>
 <body>
-<div><?= '' ?></div>
 <div>
 	<form method="post">
 		<label>Login</label><br/>
